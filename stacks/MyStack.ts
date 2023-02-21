@@ -3,7 +3,10 @@ import { StackContext, Api, Function } from "sst/constructs";
 import { registerCommands } from "../packages/core/src/register-commands";
 
 export async function Stack({ stack, app }: StackContext) {
+
+  console.log("registering commands")
   await registerCommands();
+  console.log("registered commands")
 
   const lambdaServicePrincipal = new ServicePrincipal(
     "lambda.amazonaws.com"
